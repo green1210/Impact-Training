@@ -18,6 +18,6 @@ public static void main(String [] args){
 
   int Result = fact(n);
   System.out.println("Factorial :" + Result);
-
+  sc.close();
 }
 }

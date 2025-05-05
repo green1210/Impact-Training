@@ -1,1 +1,69 @@
+import java.util.*;
 
+class Student {
+
+    private String name;
+    private int erp;
+    private int age;
+    private int marks;
+    private boolean passout;
+
+    
+    void setName(String name) {
+        this.name = name;
+    }
+
+    void setErp(int erp) {
+        this.erp = erp;
+    }
+
+    void setAge(int age) {
+        this.age = age;
+    }
+
+    void setMarks(int marks) {
+        this.marks = marks;
+    }
+
+    void setPassout(boolean passout) {
+        this.passout = passout;
+    }
+
+  
+    String getName() {
+        return name;
+    }
+
+    int getErp() {
+        return erp;
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+
+    boolean getPassout() {
+        return passout;
+    }
+
+    public static void main(String[] args) {
+        Student obj = new Student();
+
+        obj.setName("Manikanta");
+        obj.setErp(123456);
+        obj.setAge(21);
+        obj.setMarks(85);
+        obj.setPassout(true);
+
+       
+        System.out.println("Name: " + obj.getName());
+        System.out.println("ERP: " + obj.getErp());
+        System.out.println("Age: " + obj.getAge());
+        System.out.println("Marks: " + obj.getMarks());
+        System.out.println("Passout: " + obj.getPassout());
+    }
+}

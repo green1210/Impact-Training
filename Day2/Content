@@ -1,0 +1,83 @@
+//Static block:
+using static keyword static block is created, it is a single ton block.
+
+static method:
+for static method no need to create object static.
+it will acts as instance of object and using class name you call static method
+
+Example :
+import java.util.*;
+
+class Animal{
+   static void eat(){
+      System.out.println("Animal is Eating:");
+}
+}
+
+class Dog extends Animal{
+static void eat(){
+      System.out.println("Dog is Eating:");
+}
+}
+
+public class Main{
+public static void main(String[] args){
+
+Animal.eat();
+Dog.eat();
+}
+}
+
+
+
+
+
+//Non Static :
+we need object to access the method or block
+
+Example :
+import java.util.*;
+
+class Animal{
+   void eat(){
+      System.out.println("Animal is Eating:");
+}
+}
+
+class Dog extends Animal{
+
+    void eat(){
+      System.out.println("Dog is Eating:");
+}
+}
+
+public class Main{
+public static void main(String[] args){
+Animal obj = new Animal();
+obj.eat();
+}
+}
+
+
+//Constructor:
+constructor is used to initialize the object(creating of objects).
+it call default constructor for to create objects.
+
+//Conditional Statements
+conditional statement are used to get output in constant time
+
+control statements or control loops
+types:
+1.entry control : for, while
+2.exit control : Do-while
+
+for loop:
+for(start(initialization) ; End(condition); diff(increment/Decrement){
+}
+
+while(End(condition){
+diff(Increment/Decrement)
+}
+
+when you know the range use for loop and don't know range use while loop
+

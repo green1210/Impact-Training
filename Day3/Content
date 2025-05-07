@@ -1,0 +1,33 @@
+//Nested Loop
+Loop inside a loop is called Nested Loop
+
+* every problem there will be 3 types of solutions:
+1.brute force
+2.Better
+3.Optimal
+
+1.brute force:
+- Most of Brute force Solutions will get using 2 loops
+- Most of the solutions will be 2 loops(Nested loop)
+
+
+//Pattern Printing:
+
+* There are 3 Ways
+1.print no of rows
+2.print no of columns
+3.print what to print and what not to print
+
+Address Mapping:
+
+(1,1)
+*   *   *   *   * (1,5)
+
+*   *       *   *
+
+*       *       *
+
+*   *       *   *
+
+*  *  *  *  *   *(5,5)
+(5,1)

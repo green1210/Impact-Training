@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class ATM {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int correctCode = 1005;   
+        int userCode;
+
+    do{
+        System.out.println("Enter your PIN :");
+         userCode = sc.nextInt();
+        
+        if(userCode!=correctCode){
+            System.out.println("Incorrect PIN. Try again");
+        }
+    }while(userCode!=correctCode);
+
+    System.out.println("Correct PIN. verified");
+    sc.close();
+}
+}

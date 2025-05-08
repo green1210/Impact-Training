@@ -18,3 +18,75 @@ class Main{
            statement;
    }
 }
+
+// Enhanced if-else or ternary operator
+
+*Normal if else:
+
+class Nu{
+public static void main(String[] args){
+ int n =5;
+if(n==5){
+   System.out.println("yes");
+  }else{
+    System.out.println("No");
+  }
+ }
+}
+
+
+
+Enhanced if else (ternary operator) Syntax:
+
+(condition) ? statement1 : statement2;
+String res = (n==5) ? "yes" : "No";
+ System.out.println("res");
+
+
+// For-Each Loop
+
+- whenever we dont have length and index values we use for-each loop.
+- Mostly we use for-each loop in collection.
+  Ex: List, Set, Map
+
+* Example :
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        // for-each loop to print each element
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+// Add the digit in a number and make it into single digit.
+
+import java.util.*;
+
+class Ops{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Number:");
+        int n = sc.nextInt();
+       
+
+        while(n>9){
+            int sum = 0;
+            while(n>0){
+                int digit = n%10;
+                sum = sum + digit;
+                n = n/10;
+            }
+             n = sum;
+        }
+         System.out.println(n);
+         sc.close();
+    }
+}
+
+
+
+     

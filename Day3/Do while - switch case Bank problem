@@ -1,0 +1,25 @@
+import java.util.*;
+public class Bank {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do{
+            System.out.println("1.Check Balance");
+            System.out.println("2.Deposit Money");
+            System.out.println("3.Withdraw Money");
+            System.out.println("4.Exit");
+            System.out.println("Choose an option");
+            choice =sc.nextInt();
+    
+        switch(choice){
+            case 1 -> System.out.println("Balance : 50000000");
+            case 2 -> System.out.println("Deposit successful");
+            case 3 -> System.out.println("Withdraw successful");
+            case 4 -> System.out.println("Exiting......");
+            default -> System.out.println("Invalid option. Try again");
+            }
+        }while(choice != 4) ;
+        sc.close();
+    }
+}

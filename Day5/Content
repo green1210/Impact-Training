@@ -13,3 +13,56 @@ array : It is a collection of similar type of data in a continuous allocation.
 
 if variable a is stored at Address 100 then the second value of array should be allocated at 104
 
+- Syntax:
+
+data type [] arr_name;
+
+class Main{
+  pblic static void main(String[] args){
+     int[] arr = {1,2,3,4,5};
+
+* Declearation and initialization happened in same line.
+
+    int[] arr;
+      arr = {1,2,3,4,5};
+* Declearation happened in First line and initialization happened in next line.
+
+- if you want to get the data, previously we store data value in individual variable. If you want to get the data just print the array.
+- In array data is printed using index value. index values by default start with 0.
+- If we want length of array, use arr.length
+- If we want length of string, use str.length()
+
+* Type of output formats:
+
+ 1.we can use simple for loop.
+   Ex :
+       for(int i=0;i<5;i++){
+            System.out.println(arr[i]);
+         }
+
+ 2.using for each loop.
+   Ex:
+      for(int i : arr){
+          System.out.println(i);
+
+ 3.toString is a in build method to print array. Internally toString contain for loop which print out with open and closed square bracket along with comas.
+   Ex: 
+      System.out.println(Array.toString(arr));
+
+* cases:
+1. camel case: oddCount
+2. snake case: odd_count
+
+* java Strictly follow camel case and production level code
+
+- Example:
+
+class Main{
+  pblic static void main(String[] args){
+     int[] arr = {1,2,3,4,5};
+     
+     for(int i=0;i<5;i++){
+       System.out.println(arr[i]);
+      }
+   }
+}

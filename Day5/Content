@@ -1,0 +1,15 @@
+//arrays
+ 
+int a = 2;
+int b = 3;
+int c = 4;
+
+all the reference names will be stored in stack memory
+all the values assigned to those variable will be stored in heap memory.
+
+in above we have same data type for all the block, to store same type of data we use array.
+
+array : It is a collection of similar type of data in a continuous allocation.
+
+if variable a is stored at Address 100 then the second value of array should be allocated at 104
+

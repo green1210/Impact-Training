@@ -1,0 +1,42 @@
+//Problem : Highest value and second highest value in an array.
+
+class Main{
+   public static void main(String[] args){
+    int[] arr = {1,2,3,4,5};
+    int highestValue = arr[0];
+    int secondHighestValue = arr[0];
+    for(int i=0; i<arr.length; i++){
+         if(arr[i]>highestValue){
+             highestValue = arr[i];
+           }
+         }
+    for(int i=0; i<arr.length; i++){
+         if(arr[i]>secondHighestValue && arr[i] != highestValue){
+             secondHighestValue = arr[i];
+           }
+         }
+           System.out.println("Highest Value :" + highestValue );
+           System.out.println("Second Highest Value :" + secondHighestValue );
+      }
+    }
+
+*Optimized code:
+
+  
+class Main{
+   public static void main(String[] args){
+    int[] arr = {1,2,3,4,5}; 
+    int highestValue = arr[0];
+    int secondHighestValue = arr[0];
+    for(int i=0; i<arr.length; i++){
+         if(arr[i]>highestValue){
+              secondHighestValue = highestValue;
+             highestValue = arr[i];
+           }else if(arr[i]>secondHighestValue && arr[i] != highestValue){
+             secondHighestValue = arr[i];
+           }
+         }
+           System.out.println("Highest Value :" + highestValue );
+           System.out.println("Second Highest Value :" + secondHighestValue );
+      }
+    }    

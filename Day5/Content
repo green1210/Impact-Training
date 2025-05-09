@@ -66,3 +66,46 @@ class Main{
       }
    }
 }
+
+
+ 
+         
+
+// Declearing and initializing of an array with size   
+
+- once you created an array along with size, it can't be modify. the size of array is fixed.
+- int[] arr = new int[5] is created in stack memory and call it as a reference.
+- new keyword helps to create object space for the array
+- if array type is integer, by default all the values are zero
+- if array type is string then all the default value will be null.
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[5];
+        System.out.println("Enter the array values:");
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("arr = " + Arrays.toString(arr));
+    }
+}
+
+
+- whenever we were try to assign (or) print nth index, we will get array outofbound exception.
+
+//primitive data type:
+ - primitive data type  are cannot be split or divided.
+ - ex : int, float, char.
+// Non-primitive data type:
+ - Non-primitive data type  are can be split or divided.
+ -  ex : strings, all userdefined objects.
+ -  ex : 
+         class Node{
+                 int data;
+                 Node next;
+                }
+// get array index value

@@ -1,1 +1,81 @@
 
+//Next greater element using Monotonic stack;
+
+ex: {2, 8, 1, 4, 3, 6} from reverse
+  
+ - if stack is empty, return -1 and push he first element into the stack
+ - now compare the previous element with the element in the stack, if it small insert into the stack
+ - continue comparing, if found greater then return the element and smaller return -1
+
+//Array List:
+ - In arrays size is fixed.
+ - If array size is 5, maximum we can store  5 element. if we want to store 6th element we have to create new array, we can't increase the size.
+ - But in array list size is dynamic, we can increase or decrease the size.
+ - list is an interface and angular brackets are generics.
+ - It belongs to collection frameworks, we have to use wrapper class, followed by array list name
+ - interface contains incomplete methods and class contains complete methods.
+ - arraylist is a class, we have to import arraylist class
+
+Syntax:
+ List<Wraper class of list type> ArrayListName =new ArrayList<>()
+
+
+import java.util.*;
+class Main{
+   public static void main(String[] args){
+
+  List<Integer> Leaders = new ArrayList<>();
+  int[] arr = {5 ,6 ,2 ,8 ,2 ,6};
+ int max = Integer.MIN_VALUE;
+for(int i=arr.length-1;i>=0;i--){
+    if(arr[i]>max){
+        Leaders.add(arr[i]);
+       max = arr[i];
+      }
+}
+Collections.reverse(Leaders);
+System.out.println(Leaders);
+}
+}
+
+ 
+- In array list, if array is initialize with size 2, if we are try to add 3rd element then size of the array list is double.
+- if array is size 4 if we are try to add 5th element then size of the array list will be 8.
+- if array list size is 8 and contains 8 elements, if we removed 4 elements, size will be same and again we removed the 5th element,then size will be halfed(4).
+- Ex:
+   arr[4] = {1,2,3,4,5} trying to add 5
+   Size of array will be doubled arr[8]
+   arr[8] = {1,2,3,4,5}
+
+//Greedy Algorithm
+
+* Custom sorting:
+  - In sorting is 2 way of sorting, ascending order and decending order.
+  - In custom sorting, we can sort according to our format.
+  - ex:
+          26,37,19 - custom sorting(ascending order(unit places))
+
+  - From given arrays makes pairs. sort the array based on end type
+
+  s = {1,3,0,5,8,5}
+  e = {2,4,6,7,9,9}
+   (s,e) make pairs
+  arr = {(1,2),(3,4),(0,6),(5,7),(8,9),(5,9)}
+
+- compare the end time of one pair with next pair start time. if it start time is greater then the end time of previous then consider the meeting.
+
+import java.util.*;
+class MettingScheduler{
+
+public static int maxMeetings(List<Meeting>meeting){
+    meeting.sort(Comparator.comparingInt(m -> m.end));
+    int count =-0, lastEndTime =-1;
+    for(Meeting meeting :meetings){
+        if(meetig.start>lastEndTime){
+            count++;
+            lastEndTime = meeting.end;
+        }
+    }
+    return count;
+}
+}

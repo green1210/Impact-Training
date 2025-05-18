@@ -1,0 +1,66 @@
+
+Day 9:
+
+array : Array is acollection of similar type of elements
+similary to store collectin of characters, we use strings
+
+str = "HELLO";
+
+- str(reference) is stored in stack memory and HELLO(object) is stored(created) in string pool of heap memory.
+- once object created in string pool, it is created with fixed size. so, we can't modify the string. that's why strings are immutable.
+- charAt(index): gives the character at the particular index.
+- str.substring(index) : the substring start at particular index.
+
+
+"HELLO"          " "
+"ELLO"           "H"
+"LLO"            "H"
+"LO"             "HL"
+"O"              "HLL"
+" "              "HLLO"
+
+- Here base case is Empty string, when string is empty, recursion is stopped.
+
+class Main {
+    
+    static String skip(String ip){
+        if(ip.isEmpty()){
+            return "";
+        }
+        
+        char ch = ip.charAt(0);
+        if(ch == 'E'){
+            return skip(ip.substring(1));
+        }else{
+        return  ch + skip(ip.substring(1));
+    }
+    }
+    
+    public static void main(String[] args) {
+        String ip = "HELLO";
+        String str = skip(ip);
+        System.out.println(str);
+    }
+}
+
+class Main {
+    
+    static String skip(String ip){
+        if(ip.isEmpty()){
+            return "";
+        }
+        
+        char ch = ip.charAt(0);
+        if(ip.startsWith("HELLO")){
+            return skip(ip.substring(5));
+        }else{
+        return  ch + skip(ip.substring(1));
+    }
+    }
+    
+    public static void main(String[] args) {
+        String ip = "OLLEHHELLOHAI";
+        String str = skip(ip);
+        System.out.println(str);
+    }
+}

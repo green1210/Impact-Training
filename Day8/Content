@@ -1,0 +1,24 @@
+RECURSIONS:-
+-> Recursions are nothing but it and its self
+// Two Types
+-> Function calling same function it self and it self 
+-> Function calling another function it self and it self 
+
+-> If we didn't mention base case properly will get an exception called stack overflow.
+-> Recursions are used to break the code.
+
+Q) Write the code for factorial using recursions.
+  5! = 5*4!
+  4! = 4*3!
+  3! = 3*2!
+  2! = 2*1!
+  1! = 1*0!
+-> All the return values will be pushed into a stack, whenever we hits base condition the elements will be popped.
+
+factorial{
+  if(n==0){
+    return 1;
+}else{
+  return N*fact(n-1)
+   } 
+ }

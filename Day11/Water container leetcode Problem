@@ -1,0 +1,28 @@
+// water container leetcode :
+import java.util.*;
+
+class Solution{
+    public static int Sol(int[] arr){
+        int i=0;
+        int j=arr.length-1;
+        int max =0;
+        while(i<j){
+           int len = Math.min(arr[i],arr[j]);
+           int b  = j-i;
+           int area = len*b;
+           if(arr[j]>arr[i]){
+               i++;
+           }else{
+               j--;
+           }
+           max = Math.max(max,area);
+        }
+        return max;
+    }
+    public static void main(String[] args){
+         int[] arr = {1,8,6,2,5,4,8,3,7};
+         int res = Sol(arr);
+         System.out.print(res);
+         
+    }
+}

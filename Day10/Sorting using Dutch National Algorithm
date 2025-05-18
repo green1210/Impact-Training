@@ -1,0 +1,39 @@
+import java.util.*;
+
+class Main {
+    public static void green(int[] arr) {
+        int l = 0;
+        int m = 0;
+        int h = arr.length - 1;
+
+        while (m <= h) {
+            if (arr[m] == 0) {
+                swap(arr, l, m);
+                l++;
+                m++;
+            } else if (arr[m] == 1) {
+                m++;
+            } else {          
+                swap(arr, m, h);
+                h--;
+            }
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 2, 1, 2, 0, 2, 1, 0, 1};
+
+        green(arr);
+
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}

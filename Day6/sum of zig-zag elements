@@ -1,0 +1,41 @@
+ //  sum of zig-zag elements -->1,2,3,5,7,8,9,-->35
+//   {  
+//       {1,2,3},
+//       {4,5,6},
+//       {7,8,9}
+//   }
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        final int N = 3;
+        int[][] a = new int[N][N];
+
+        for (int i = 0; i < N; i++)
+            for (int j = 0; j < N; j++)
+                a[i][j] = sc.nextInt();
+
+        int sum = 0;
+
+        for (int j = 0; j < N; j++)
+            sum += a[0][j];
+
+       
+        for (int i = 1; i < N - 1; i++)
+            sum += a[i][N / 2];
+
+        
+        for (int j = 0; j < N; j++)
+            sum += a[N - 1][j];
+
+        System.out.println("Sum of zigzag elements = " + sum); 
+        sc.close();
+}
+
+    }
+    
+

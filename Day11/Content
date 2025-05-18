@@ -1,0 +1,120 @@
+Day 11:
+LEETCODE 53
+//collection frameworks:
+
+List                    set                           Map
+
+1.arraylist            hashset                         hashmap
+2.Linkedlist           linkedhashset                   linkedhashmap
+3.Vector               treeset                         treemap
+
+- list,set,map are the interfaces and rest of elements are class.
+- interfaces contains incomplete methods and class are the complete method.
+
+* List:
+- order and accepts duplicates.
+
+* Arraylist:
+- it is a dynamic array, which can expand it's size dynamically by 1.5 times.
+
+*Vector:
+- it is a dynamic array, which can expand it's size dynamically by 2 times.
+
+*LinkedList:
+- collection of similar types of elements in random allocation.
+
+*set:
+- set is a collection of elements which are unordered , no duplicates.
+
+*Hashset:
+- it is a class which is used to store set elements.
+
+*Tree set:
+-as set is unorder, we use treeset, the elements will be in order.
+
+*Maps:
+- Maps contains key, values pairs.
+
+*HashMap:
+- To store key-value pairs we use hashmap.
+
+* set and map are used to get result in constant time complexity O(1)
+* in set and map we don't have index values just like array. so we can't use simple for loop. we have to use for-each loop.
+`
+//Syntax:
+
+*Arraylist    :     List<Integer>list = new ArrayList<>();
+*Hashset      :     Set<Integer> st = new Hashset<>();
+*Hashmap      :     Map<Integer, Integer> mp = new Hashmap<>();
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Set<Integer> st = new Hashset<>(nums, target);
+        int nums = {2,7,11,15};
+        target = 9;
+        for(int i=0;i<mums.length-1;i++){
+            st.insert(arr[i]);
+            rem = target - arr[i];
+            if(st.contains(rem)){
+                return new int[] {rem,arr[i]};
+            }
+        }
+    }
+}
+
+// kadence Algorithm:
+
+From the given array, we have to find maximum sum of subarray.
+- Ex: {1,2,3}
+
+- Sub arrays : {1},{2},{3}.{1,2},{2,3},{1,2,3}
+
+sum =0;
+max=-;
+for(int i=0;i<arr.length;i++){
+sum =sum +arr[i]
+if(sum==0){
+ sum =0;
+}
+
+max =Math.max(max,sum;
+
+- to find maximum sum of subarrays for optimal solution , we can use kadance algorithm.
+
+* Steps:
+1.Initialize 2 variables
+2.sum variable is used for individual sum and another used for maxsum.
+3.initialize sum with 0 and max with -
+4.Run a loop from 0 to n-1 and get the values from the and add them.
+5.always update max value.
+6.our target is to get max sum, if we carry negative values, overall sum will be reduced. so we get sum less than zero, restart the sum with 0 and return the value
+
+// water container leetcode :
+import java.util.*;
+
+class Solution{
+    public static int Sol(int[] arr){
+        int i=0;
+        int j=arr.length-1;
+        int max =0;
+        while(i<j){
+           int len = Math.min(arr[i],arr[j]);
+           int b  = j-i;
+           int area = len*b;
+           if(arr[j]>arr[i]){
+               i++;
+           }else{
+               j--;
+           }
+           max = Math.max(max,area);
+        }
+        return max;
+    }
+    public static void main(String[] args){
+         int[] arr = {1,8,6,2,5,4,8,3,7};
+         int res = Sol(arr);
+         System.out.print(res);
+         
+    }
+}

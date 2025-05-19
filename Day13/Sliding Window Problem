@@ -1,0 +1,28 @@
+class SlidingWindow {
+    public static int maxScore(int[] arr, int k){
+        int n = arr.length;
+        int windowsum =0;
+        for(int i=0;i<n-k;i++){
+            windowsum+=arr[i];
+        }
+
+        int minWindowSum = windowsum;
+
+        for(int i=n-k; i<n;i++){
+            windowsum += arr[i] -arr[i-(n-k)];
+            minWindowSum = Math.min(minWindowSum, windowsum);
+        }
+
+        int totalsum =0;
+        for(int num : arr){
+            totalsum+=num;
+        }
+        return totalsum - minWindowSum;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 1};
+        int k = 3;
+        int result = maxScore(arr, k);
+        System.out.println(result);
+    }
+}

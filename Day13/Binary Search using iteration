@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class BinSearch {
+    public static int searchElement(int[] arr, int target){
+        int low = 0;
+        int high = arr.length-1;
+        
+        while(low<=high){
+            int mid = low +(high-low)/2;
+            
+            if(arr[mid]==target){
+                return mid;
+            }else if(arr[mid]<target){
+                low = mid + 1; 
+            }else{
+                high = mid -1;
+            }
+        }
+        return -1;
+    }
+    
+    public static void main(String[] args){
+        int[] arr={2,3,9,12,18,25, 33, 47, 79, 89};
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter target number:");
+        int target = sc.nextInt();
+        int result = BinSearch.searchElement(arr, target);
+        System.out.println(result);
+         sc.close();
+}
+
+    }
+    

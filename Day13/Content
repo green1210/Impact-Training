@@ -1,0 +1,235 @@
+Day13:
+
+// Coating Algorithm:
+Steps:
+1. Assume that my element is target element and start comparing the elements.
+2. If we got same element increase the counter.
+3. If we got different element decrease the counter.
+4. whenever counter becomes zero, restart the target value very next element of the array.
+5. if counter becomes zero, there is no majority element.
+6. Counter greater than 0, check the target element in the array, How many times it is repeated in the array.
+7.if it is repeated more than n/2, it is the majority element.
+
+
+//Find the majority element in an given array.
+
+- Explaination :
+ we need to find the majority element in the array, by if n/2 is greater than element, we need to print that element as majority Element.
+
+- Ex : { 2, 2, 1, 2, 1} -> [2 (ele > n/2) ]  
+  
+import java.util.Arrays;
+
+class Main {
+
+    public static int majorityElement(int[] nums) {
+        int candidate = nums[0];
+        int count = 1;
+
+       
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == candidate) {
+                count++;
+            } else {
+                count--;
+                if (count == 0) {
+                    candidate = nums[i];
+                    count = 1;
+                }
+            }
+        }
+
+
+        int freq = 0;
+        for (int n : nums) {
+            if (n == candidate) freq++;
+        }
+
+        return (freq > nums.length / 2) ? candidate : Integer.MIN_VALUE;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 1, 1, 2, 2, 2, 3, 1, 4, 4, 4, 4};
+        int result = majorityElement(nums);
+        if (result != Integer.MIN_VALUE) {
+            System.out.println(result);
+        } else {
+            System.out.println("No majority element");
+        }
+    }
+}
+
+
+
+
+// Longest Consecutive Elements
+
+Steps:
+
+1. Push array elements into the set.
+2. set doesn't contain index values, use for-each loop.
+3. Start iterating the array elements.
+4. find the starting point.
+
+   {1, 2, 101, 3, 102, 4, 103}  -> [4 (1, 2, 3, 4)
+                                    3 (101, 102, 103) ]
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Main {
+
+    public static int longestConsecutive(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+       
+        Set<Integer> set = new HashSet<>();
+        for (int n : nums) set.add(n);
+
+        int best = 0;
+
+       
+        for (int num : set) {
+           
+            if (!set.contains(num - 1)) { 
+                int current = num;
+                int length  = 1;
+
+                while (set.contains(current + 1)) {
+                    current++;
+                    length++;
+                }
+
+                best = Math.max(best, length);
+            }
+        }
+        return best;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 101, 3, 102, 4, 103};
+        int result = longestConsecutive(nums);
+        System.out.println("Maximum consecutive length: " + result); 
+    }
+}
+
+
+// Sub sequence :
+
+class Main{
+    public static void main(String[] args){
+        String ip = "abc";
+        subseq(ip, "");
+    }
+    
+    static void subseq(String ip, String op){
+        if(ip.isEmpty()){
+            System.out.println(op);
+            return;
+        }
+        
+        char ch= ip.charAt(0);
+        subseq(ip.substring(1), op + ch);
+        subseq(ip.substring(1), op);
+    }
+    
+}
+
+
+//sliding window:
+
+Steps:
+
+1.We have to use 2 pointers/
+2.types:
+     - constant window.
+     - dynamic window.
+
+3.constant window : size is fixed.
+4.dynamic window: the window might expand or shrink.
+
+- Example:    { 1, 2, 3, 4, 5, 6, 1}
+
+
+
+// leetcode : 1423
+class SlidingWindow {
+    public static int maxScore(int[] arr, int k){
+        int n = arr.length;
+        int windowsum =0;
+        for(int i=0;i<n-k;i++){
+            windowsum+=arr[i];
+        }
+
+        int minWindowSum = windowsum;
+
+        for(int i=n-k; i<n;i++){
+            windowsum += arr[i] -arr[i-(n-k)];
+            minWindowSum = Math.min(minWindowSum, windowsum);
+        }
+
+        int totalsum =0;
+        for(int num : arr){
+            totalsum+=num;
+        }
+        return totalsum - minWindowSum;
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 1};
+        int k = 3;
+        int result = maxScore(arr, k);
+        System.out.println(result);
+    }
+}
+
+
+
+
+
+//Binary search:
+
+1. if array is not sorted, sort the array.
+2. initial 2 pointers, l at 0 and r at n-1.
+3. run the loop til i and j cross each other.
+4. find the middle value.
+5. compare middle value with the target, if arr[mid]  is equal to target, then return mid.
+6. if target element greater than the arr[mid], then left pointer is updated to mid +1.
+7. if target element less than the arr[mid], then right pointer is updated to mid-1.
+
+middle = (low + high)/2;
+middle = low +(high-low)/2; - stop overflow
+
+
+import java.util.Scanner;
+
+public class BinSearch {
+    public static int searchElement(int[] arr, int target){
+        int low = 0;
+        int high = arr.length-1;
+        
+        while(low<=high){
+            int mid = low +(high-low)/2;
+            
+            if(arr[mid]==target){
+                return mid;
+            }else if(arr[mid]<target){
+                low = mid + 1; 
+            }else{
+                high = mid -1;
+            }
+        }
+        return -1;
+    }
+    
+    public static void main(String[] args){
+        int[] arr={2,3,9,12,18,25, 33, 47, 79, 89};
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter target number:");
+        int target = sc.nextInt();
+        int result = BinSearch.searchElement(arr, target);
+        System.out.println(result);
+         sc.close();
+}
+
+    }
+    

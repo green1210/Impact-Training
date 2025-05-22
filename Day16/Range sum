@@ -1,0 +1,26 @@
+//RangeSum:
+class Main {
+    public static int[] rangeSum(int[] nums) {
+        int[] prefix = new int[nums.length];
+        prefix[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            prefix[i] = prefix[i - 1] + nums[i];
+        }
+        return prefix;
+    }
+
+    public static int getPrefix(int[] prefix, int i, int j) {
+        if (i == 0) return prefix[j];
+        return prefix[j] - prefix[i - 1];
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 5, 7, 9};
+        int[] prefix = rangeSum(nums);
+
+        int i = 1, j = 3;
+        int sum = getPrefix(prefix, i, j);
+
+        System.out.println("Range sum from index " + i + " to " + j + ": " + sum);
+    }
+}

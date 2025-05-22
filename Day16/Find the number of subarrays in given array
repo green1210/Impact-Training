@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+        int arr[] = {0, 0, 0, 0, 0}; 
+        int goal = 0; 
+        int res = find(arr, goal); 
+        System.out.println(res);
+    }
+
+    static int find(int[] arr, int goal) {
+        int l = 0, r = 0, sum1 = 0, count1 = 0, count2 = 0;
+
+        while (r < arr.length) {
+            sum1 += arr[r];
+            while (sum1 > goal && l <= r) {  
+                sum1 -= arr[l]; 
+                l++;
+            }
+            count1 += (r - l + 1); 
+            r++;
+        }
+        l = 0; r = 0; sum1 = 0;
+        
+        while (r < arr.length) {  
+            sum1 += arr[r];
+            while (sum1 > goal - 1 && l <= r) {  
+                sum1 -= arr[l]; 
+                l++;
+            }
+            count2 += (r - l + 1); 
+            r++;
+        }
+        return count1 - count2;
+    }
+}

@@ -1,0 +1,112 @@
+Day 14:
+
+subarray      subset    substring    subsequence
+
+[1, 2, 3]   [1, 2, 3]     "abc"        "abc"    
+
+[1, 2] c    [1, 2] c       ab  c        ab  c
+
+[1, 3] x    [1, 3] c       ac  x        ac  c
+
+[2, 1] x    [2, 1] x       ba  x        ba  x
+
+- SubArray: Array Element should be consecutive.
+- SubSet : Elements can be continuous or might not be continuous.it should be sequence, reverse is not possible.
+- subString : characters should be continuous. 
+- SubSequence:  characters might be continuous or may not be. it should be sequence, reverse is not possible.
+
+// Dynamic Sliding window :
+ * Leetcode : 3
+- ex : abcabcdb
+
+steps:
+
+1.Initialize l and r pointer at 0th index.
+2. Run the loop from r to n-1. create set.
+3. check r characters in sets. if we don't have the that character, then add the character to the set.
+4. after adding the character increase the r.
+5. if r character contains in the set, remove the l character and increase l pointer.
+6. calculate the length : r-l+1.
+
+// Leetcode : 1004
+
+class Main{
+    public static int longestones(int[] arr, int k){
+        int left =0, maxlength =0, zeroCount =0;
+        
+    for(int right =0; right<arr.length; right++){
+        if(arr[right]==0){
+            zeroCount++;
+        }
+        if(zeroCount>k){
+            if(arr[left]==0){
+                zeroCount--;
+            }
+            
+            left++;
+        }
+        maxlength = Math.max(maxlength, right-left+1);
+    }
+        return maxlength;
+    }
+    
+    public static void main(String[] args){
+        int[] arr={1,1,1,0,0,0,1,1,1,1,0};
+        int k =2;
+        int result = longestones(arr, k);
+        System.out.println(result);
+    }
+}
+
+// Greedy Algorithm:
+
+1.n meeting in a room
+2.job scheduling
+3.0/1 fractional snapsack problem
+
+1. N meeting in a room
+
+Ex:
+   Input: 
+    N =6
+    start[] = {1, 3, 0, 5, 8, 5}
+    end[]   = {2, 4, 5, 7, 9, 9}
+
+   Output: 1 2 4 5
+
+Explanation: In a room we have to conduct maximum meeting from all thhe meeting.
+
+Type 1: return maximu meeting.
+Type 2: return the possible pairs(Ending time of current meeting is strictly lesser to the starting time of the next meeting.)
+Type 3: return the all pairs(Ending time of current meeting and starting time of the next meeting can be same.)
+Type 4: Duplicate Meeting are accepted.
+
+Steps:
+1.From given arrays, make pairs or triplets+.
+2.Do the custom sorting according according to the end time using comparator method.
+3.For sure we take the first meeting.
+4.Ending time current meeting is strictly lesser to the starting of next meeting.
+5.If it is strictly lesser, consider the meeting.
+
+
+
+2.  0/1 Snapsack:
+
+Input:  N=3, w=50, values[] = {100, 60, 120}, weight[] = {20, 10, 30}
+output: 240.00
+
+Explanation:
+steps:
+1.from given arrays, get per kg valued array.
+2.make triplets.
+3.do the custom sorting based on per kg values.
+4.take complete weight from 1st pair and decrease weight from total capacity.
+
+
+3. Job Scheduling:
+
+Input: N=4; jobs = { (1,4,20), (2,1,10), (3,1,40), (4,1,30) }
+Output: 2 60
+
+Explaination: The 3rd job with a deadline 1 is performed during the first unit of time. The second unit of time as its deadline is 4.
+              profit =  40+20 = 60

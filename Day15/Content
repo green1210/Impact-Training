@@ -1,0 +1,23 @@
+Day 15:
+
+// LINEAR SĒARCH & BINARY SEARCH:-
+
+// LINEAR SEARCH:-
+
+-> To search the elements in the given array in a linear array. 
+-> Whenever the length of array is smaller there use linear search and the time complexity will be 0(n).
+
+// BINARY SEARCH:-
+
+-> To search the elements from the given array in less time complexity.
+-> The time complexity for binary search is O(log n).
+
+STEPS:-
+1. Initialize left pointer at 0, right pointer at n-1
+2. Run the loop from left to right, break the loop when left and right process each other
+3. Find the middle value.
+4. If arr[mid] = target, return mid
+5. If arr[mid] < to the target value then the element will be left half of the array.
+6. If the element present in the left half, left pointer will remains same , right point will move to n-1.
+7. If arr[mid] > to the target value then the element present in right half of array.
+-> Array should be sorted.

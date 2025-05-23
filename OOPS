@@ -1,0 +1,54 @@
+OOPS: 
+
+Requirement : class, object, constructor, Instance
+
+* class : a Virtual Entity or blueprint of a object. which contains abstract and non abstract method
+
+* object : Instance of a class.
+- to call non static method, we have create an object to access non static method.
+
+* constructor : used to initialize of objects
+   - Neither class nor method, which has class name and method properties.
+
+  types:
+  1. Default  : for every class there will be an default constructor
+  2. Paramaterlized : which contains parameter.
+
+* Inheritance : 
+  
+  Types:
+  1.single        : Properties are inherted to child class from parent class.
+  2.multi-level   : Properties are inherted to parent class from grand parent class and from parent class to child class.
+  3.multiple      : Properties are inherted to child class from multiple parent class.
+  4.Heirarchal    : Properties are inherted from parent class to multiple child class.
+
+ - Extend keyword is used to inherite properties from classes.
+ - Implement keyword is used to inherite properties from interfaces.
+
+* Polymorphizism : same method is existed in different forms.
+
+  - Method overloading : same method name existing in same class with different parameters
+  - Method overriding  : same method decleared in child class and parent class with same name and same parameters
+  - Main method can be overrided
+
+* Encapsulation : Binding method and data together, hides sensitive data.
+  - private and public keyword is used.
+  - private keyword hides the data.
+
+* Abstraction : Hiding implementation and shows essential data.
+    - All Abstract methods are incomplete Methods.
+    - Types:
+      1.Abstract     : Method and class name should start with abstract key
+            - 4 types : Data, control, function, procedure
+      2.Non Abstract :
+  
+* Interface : 
+    - Contains only abstract methods.
+    - we can't create object for interface.
+
+* Access Specifiers : public, private, protected, default
+    - public  : scope will within the class , within file , within the package,outside package, parent class outside the package, schild class outside the package.
+    - private : scope will be within the class only.
+    - private : scope will within the class , within file , within the package,outside package, parent class outside the package.
+    - Default : scope will within the class , within file , within the package.
+ 

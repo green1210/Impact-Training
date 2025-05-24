@@ -51,4 +51,309 @@ Requirement : class, object, constructor, Instance
     - private : scope will be within the class only.
     - private : scope will within the class , within file , within the package,outside package, parent class outside the package.
     - Default : scope will within the class , within file , within the package.
- 
+
+
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B{
+    public int method3(int a, int b, int c){
+        return a*b*c;
+    }
+}
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        
+        A.method1();
+       int result= obj1.method2(2,3);
+       System.out.println(result);
+    }
+}
+
+
+//Single Inheritence:
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B extends A{
+    public int method3(int a, int b, int c){
+        return a*b*c;
+    }
+}
+
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        
+        
+      
+       int result= obj2.method3(2,4,5);
+       System.out.println(result);
+    }
+}
+
+
+// Multi level Inhertence
+
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B extends A{
+    public int method3(int a, int b, int c){
+        return a*b*c;
+    }
+}
+
+class C extends B{
+    public int method4(int a){
+        return a;
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        C obj3 = new C();
+        
+      
+       int result= obj3.method2(2,4);
+       System.out.println(result);
+    }
+}
+
+//Multiple Inheritance
+
+* Same method names causes ambiguity, that's why multiple inheritance does not support in java.
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B{
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class C extends A implements B{
+    
+}
+
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        C obj3 = new C();
+        
+        
+      
+       int result= obj3.method2(2,4);
+       System.out.println(result);
+    }
+}
+
+// Method Overloading:
+class A{
+    public int method2(int a, int b){
+        return a+b;
+    }
+    
+    public int method2(int a, int b, int c){
+        return a+b+c;
+    }
+}
+
+class B{
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        
+        
+      
+       int result= obj2.method2(2,4);
+       System.out.println(result);
+    }
+}
+
+
+//Encapsulation:
+
+class Main{
+    public static void main(String[] args){
+        
+        Student s1 = new Student();
+         s1.setName("Rohith");
+        System.out.println("Name : "+s1.getName());
+        s1.setAge(30);
+        System.out.println("Age : "+s1.getAge());
+         s1.setPassedOut(false);
+        System.out.println("Passed Or Not : "+s1.getPassedout());
+         s1.setMarks(295);
+        System.out.println("Marks : "+s1.getMarks());
+         s1.setERP(5000);
+        System.out.println("ERP : "+s1.getERP());
+    }
+}
+
+class Student{
+    int age;String name;boolean passedout;float marks;long ERP;
+    
+    void setAge(int age){
+        this.age = age;
+    }
+    void setName(String name){
+        this.name=name;
+    }
+    void setPassedOut(boolean passedout){
+        this.passedout = passedout;
+    }
+    void setMarks(float marks){
+        this.marks = marks;
+    }
+    void setERP(long ERP){
+        this.ERP = ERP;
+    }
+    
+    int getAge(){
+        return age;
+    }
+    String getName(){
+        return name;
+    }
+    boolean getPassedout(){
+        return passedout;
+    }
+    float getMarks(){
+        return marks;
+    }
+    long getERP(){
+        return ERP;
+    }
+}
+
+
+
+class Person {
+    private String name; // private variable
+
+    // Getter method
+    public String getName() {
+        return name;
+    }
+
+    // Setter method
+    public void setName(String newName) {
+        name = newName;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("John");
+        System.out.println(p.getName()); 
+    }
+}
+
+//Abstraction:
+
+abstract class A {
+    abstract int method2(int a); 
+
+    void print() {
+        System.out.print("Hello");
+    }
+}
+
+class B extends A {
+    
+  
+    int method2(int a) {
+        return a * 2;
+    }
+
+    int method3(int a, int b) {
+        return a + b;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+       
+        B obj2 = new B(); 
+        
+        int result = obj2.method2(2);
+        System.out.println(result); 
+
+        System.out.println(obj2.method3(2, 4)); 
+        obj2.print(); 
+    }
+}
+
+//Interface:
+
+- contains incomplete methods(Abstract).
+- we use Implements keyword
+- All methods in an interface are implicitly public and abstract.
+
+
+- ex:
+
+    interface A{
+    int method2(int a, int b);
+        }
+        
+    class B implements A{
+        
+        public int method2(int a, int b){
+            return a+b;
+        }
+    }
+    
+    class Main{
+        public static void main(String[] args){
+            B obj = new B();
+            
+            int res = obj.method2(1,2);
+            System.out.println(res);
+        }
+    }

@@ -1,0 +1,28 @@
+// Method Overloading:
+class A{
+    public int method2(int a, int b){
+        return a+b;
+    }
+    
+    public int method2(int a, int b, int c){
+        return a+b+c;
+    }
+}
+
+class B{
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        
+       int result= obj2.method2(2,4);
+       System.out.println(result);
+    }
+}
+

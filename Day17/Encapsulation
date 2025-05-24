@@ -1,0 +1,21 @@
+class Person {
+    private String name; // private variable
+
+    // Getter method
+    public String getName() {
+        return name;
+    }
+
+    // Setter method
+    public void setName(String newName) {
+        name = newName;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("John");
+        System.out.println(p.getName()); 
+    }
+}

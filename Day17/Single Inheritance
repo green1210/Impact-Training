@@ -1,0 +1,30 @@
+//Single Inheritence:
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B extends A{
+    public int method3(int a, int b, int c){
+        return a*b*c;
+    }
+}
+
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        
+        
+      
+       int result= obj2.method3(2,4,5);
+       System.out.println(result);
+    }
+}
+

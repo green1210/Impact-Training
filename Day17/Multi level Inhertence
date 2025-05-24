@@ -1,0 +1,36 @@
+// Multi level Inhertence
+
+class A{
+    static void method1(){
+        System.out.println("Hello");
+    }
+    
+    public int method2(int a, int b){
+        return a+b;
+    }
+}
+
+class B extends A{
+    public int method3(int a, int b, int c){
+        return a*b*c;
+    }
+}
+
+class C extends B{
+    public int method4(int a){
+        return a;
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        A obj1 = new A();
+        B obj2 = new B();
+        C obj3 = new C();
+        
+      
+       int result= obj3.method2(2,4);
+       System.out.println(result);
+    }
+}
+

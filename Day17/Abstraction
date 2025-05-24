@@ -1,0 +1,32 @@
+//Abstraction:
+
+abstract class A {
+    abstract int method2(int a); 
+
+    void print() {
+        System.out.print("Hello");
+    }
+}
+class B extends A {
+  
+    int method2(int a) {
+        return a * 2;
+    }
+
+    int method3(int a, int b) {
+        return a + b;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+       
+        B obj2 = new B(); 
+        
+        int result = obj2.method2(2);
+        System.out.println(result); 
+
+        System.out.println(obj2.method3(2, 4)); 
+        obj2.print(); 
+    }
+}

@@ -33,4 +33,86 @@ Space Complexity:
 
 * The amount space required for the code.
 * Extra space we use in code increases the space complexity.
-* Use case of data structure : Browser(linkedlist), Google maps(Graph), Social Media(Graph)
+* Use case of data structure : Browser(linkedlist), Google maps(Graph), Social Media(Graph).
+
+Types of Data structure:
+- Linear       : Linkedlist, stack, queue.
+- Non - Linear : Trees, Graphs, Heaps.
+
+
+LinkedList :
+
+- There is no data type which can store data and address, we have create a user define data type which can store data and as well as address.
+- Used for faster insertion and delection.
+- There 3 types:
+   1.Single
+   2.Double
+   3.Circular
+     i. Single circular
+     ii.Double circular
+
+- Ex : class node {
+                int data;
+                 Node next;
+                }
+
+- There are 2 types of Possiblities:
+  1.Single Node, Last Node
+    - It contains data and null
+    - Ex: Node(int data){
+              this.data=data;
+              this.next=null;
+             }
+
+  2.Middle Node
+   - we have to create an constructor which accept data as well as address
+   - Ex : 
+           Node(int data, Node next){
+                this.data = data;
+                this.next = next;
+               }
+
+  Ex: Convert array into linkedlist
+
+   class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+}
+
+class Main {
+    static Node arrayToLinkedlist(int[] arr) {
+        Node head = new Node(arr[0]);
+        Node current = head;
+        
+        for (int i = 1; i < arr.length; i++) {
+            Node temp = new Node(arr[i]);
+            current.next = temp;
+            current = temp;
+        }
+        return head;
+    }
+
+    static void print(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + (temp.next != null ? "->" : "->Null"));
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        Node head = arrayToLinkedlist(arr);
+        print(head); 
+    }
+}

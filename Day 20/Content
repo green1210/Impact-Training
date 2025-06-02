@@ -1,0 +1,52 @@
+//Stack
+
+Key points:
+
+1.Stack is a special data structure which follow lifo,Linear data structure.
+2.Operations: push, pop, isEmpty, isFull, peek, displaySize.
+3.Stacks are used to get the output in constant time, O(1).
+
+
+import java.util.*;
+
+class stack{
+    top;
+    maxSize;
+    
+    static void push(int ele){
+        stack.top=-1;
+        if(top<5){
+            top=top++;
+            arr[top]=ele;
+        }
+    }
+    
+    static int pop(){
+        if(top<0){
+            return -1;
+        }else{
+            top=top--;
+            return arr[top];
+        }
+    }
+    
+    static int peek(){
+        return arr[top];
+    }
+    
+    static int size(){
+        return top+1;
+    }
+    
+    static boolean isEmpty(){
+        if(top==-1) return true;
+        return false;
+    }
+    
+    static boolean isFull(){
+        stack.maxSize=5
+        if(top>maxSize) return true;
+        return false;
+        
+    }
+}

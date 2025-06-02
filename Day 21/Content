@@ -1,0 +1,41 @@
+// sorting Algorithms:
+
+- Alorithms are used to sort the data in accesending or descending order.
+- Ex: merge, bubble, radical, quick, insertion, heap.
+
+* Bubble Sorting: 
+ - selecting the adjacent elements, compare the the element and swap them.
+ - after the completion of every iteration the weightest and lightest element will go the end.
+ - Best case : n
+ - worst case : n^2
+
+* Selection ort:
+ - Selecting the element at right place irrespective of array elements.
+ - best case and worst case is n^2.
+
+- Seudo Code:
+     for(i=0->n-1){
+     small =i;
+        for(j=i+1->n-i-1){
+             if(ar[j] < arr[i]{
+                  small=j;
+                  swap(arr[i],arr[j])
+                   }
+      }
+
+// Queue 
+- Queue is linear data structure.
+- fifo
+- Types of queues:
+
+  1.single ended
+  2.double ended 
+  3.circular
+  4.priority
+    - min queue
+    - max queue
+
+* step:
+- initialize the 2 pointers, front and rare.'
+- enqueue element at rare end.
+- dequeue the element at front end.
